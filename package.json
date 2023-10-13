@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "generator-code": "^1.7.9",
+    "yo": "^4.3.1"
+  }
 }
