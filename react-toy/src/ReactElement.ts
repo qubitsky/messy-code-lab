@@ -3,12 +3,12 @@ export interface ReactElement {
   props: any;
   key?: any;
 }
-export const createElement = (type, props: any = {}, children?: any[]) => {
+export const createElement = (type, props, ...children) => {
+  if (!props) {
+    props = {};
+  }
   if (children) {
     props.children = children;
   }
-  return {
-    type,
-    props,
-  };
+  return { type, props };
 };

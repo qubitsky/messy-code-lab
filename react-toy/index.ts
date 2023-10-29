@@ -1,13 +1,19 @@
 // import React from "react";
-import { createElement } from "./src/ReactElement";
+import htm from "htm";
+import { ReactElement, createElement } from "./src/ReactElement";
 import { render } from "./src/ReactDom";
 
-const spanElm = createElement("span");
+const html = htm.bind(createElement);
 
 function App() {
-  return createElement("div", {}, [spanElm, "hello world"]);
+  return html`
+    <div>
+      <span>foo</span>
+      hello world
+    </div>
+  `;
 }
-const elm = createElement(App);
+const elm = html`<${App} />` as ReactElement;
 const root = document.querySelector("#root") as HTMLElement;
 
 render(elm, root);
