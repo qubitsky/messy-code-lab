@@ -30,11 +30,11 @@ export class DOMComponent {
     if (children) {
       // 挂载子元素
       const renderedChildren = children.map((child) => {
-        if (typeof child === 'string') {
+        if (typeof child === "string") {
           return {
             mount() {
               return document.createTextNode(child);
-            }
+            },
           };
         } else {
           return instantiateComponent(child);
@@ -47,6 +47,7 @@ export class DOMComponent {
     }
     return node;
   }
+  unmount() {}
 }
 
 export class FnComponent {
@@ -62,4 +63,5 @@ export class FnComponent {
     this.renderedComponent = renderedComponent;
     return renderedComponent?.mount();
   }
+  unmount() {}
 }

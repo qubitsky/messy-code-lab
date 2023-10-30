@@ -1,7 +1,7 @@
 // import React from "react";
 import htm from "htm";
 import { ReactElement, createElement } from "./src/ReactElement";
-import { render } from "./src/ReactDom";
+import { render, unmount } from "./src/ReactDom";
 
 const html = htm.bind(createElement);
 
@@ -13,7 +13,11 @@ function App() {
     </div>
   `;
 }
-const elm = html`<${App} />` as ReactElement;
+const elm = html`<${App}><//>` as ReactElement;
 const root = document.querySelector("#root") as HTMLElement;
 
 render(elm, root);
+
+setTimeout(() => {
+  unmount(root);
+}, 5000);
