@@ -1,0 +1,3 @@
+[submodule "react"]
+	path = react
+	url = https://gitee.com/mirrors/react.git
