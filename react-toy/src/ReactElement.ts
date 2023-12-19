@@ -3,6 +3,7 @@ export interface ReactElement {
   props: any;
   key?: any;
 }
+
 export const createElement = (type, props, ...children) => {
   if (!props) {
     props = {};

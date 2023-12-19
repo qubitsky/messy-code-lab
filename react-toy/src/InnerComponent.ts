@@ -48,6 +48,7 @@ export class DOMComponent {
     return node;
   }
   unmount() {}
+  receive(nextElement) {}
 }
 
 export class FnComponent {
@@ -64,4 +65,6 @@ export class FnComponent {
     return renderedComponent?.mount();
   }
   unmount() {}
+
+  receive(nextElement) {}
 }

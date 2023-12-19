@@ -7,6 +7,16 @@ export function render(
     firstChild?: any;
   }
 ) {
+  if (container.firstChild) {
+    const prevRootComponent = container.firstChild._internalInstance;
+    if (prevRootComponent) {
+      const prevElement = prevRootComponent.currentElement;
+      if (prevElement.type === element.type) {
+        prevRootComponent.receive(element);
+      }
+    }
+  }
+
   const rootComponent = instantiateComponent(element);
   const rootNode = rootComponent?.mount();
   container.appendChild(rootNode);
